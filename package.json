@@ -1,0 +1,7 @@
+{
+  "name": "blog",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Vlad Zadvorny <vladzadvorny@icloud.com>",
+  "license": "MIT"
+}
