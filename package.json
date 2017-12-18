@@ -1,7 +1,21 @@
 {
   "name": "blog",
   "version": "1.0.0",
-  "main": "index.js",
   "author": "Vlad Zadvorny <vladzadvorny@icloud.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+  },
+  "engines": {
+    "node": ">=6.0.0"
+  },
+  "dependencies": {
+    "express": "^4.16.2"
+  },
+  "devDependencies": {
+    "eslint": "^4.13.1",
+    "eslint-plugin-node": "^5.2.1",
+    "nodemon": "^1.13.3"
+  }
 }
