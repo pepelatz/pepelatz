@@ -1,6 +1,6 @@
 {
-  "plugins": ["node", "prettier"],
-  "extends": ["eslint:recommended", "plugin:node/recommended"],
+  "plugins": ["node"],
+  "extends": ["eslint:recommended", "plugin:node/recommended", "prettier"],
   "rules": {
     "node/exports-style": ["error", "module.exports"],
     "no-console": 0
