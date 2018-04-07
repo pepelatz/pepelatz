@@ -1,7 +1,11 @@
 {
-  "name": "blog",
+  "name": "pepelatz",
   "version": "0.0.1",
   "author": "Vlad Zadvorny <vladzadvorny@icloud.com>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/pepelatz/pepelatz.git"
+  },
   "license": "MIT",
   "scripts": {
     "start": "cross-env PORT=3001 node index.js",
