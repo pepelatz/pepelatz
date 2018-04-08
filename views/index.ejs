@@ -1,26 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
+<% include layout/header.ejs %>
 
-<head>
-  <meta charset="UTF-8">
-  <title>Document</title>
-</head>
+  <h3>hello!</h3>
 
-<body>
-  <a href="/create">Add</a>
-  <ul>
-    <% posts.forEach(function(post){ %>
-      <li>
-        <b>
-          <%= post.title %>
-        </b>
-        <br>
-        <%= post.body %>
-      </li>
-
-      <br>
-      <% }); %>
-  </ul>
-</body>
-
-</html>
+  <% include layout/footer.ejs %>

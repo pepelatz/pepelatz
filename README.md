@@ -31,3 +31,9 @@ RoboMongo: [https://www.robomongo.org/](https://www.robomongo.org/)
 Mongoose: [http://mongoosejs.com/](http://mongoosejs.com/)
 
 ## Видео 4
+
+## Видео 5
+
+Моя тема VS Code: [https://marketplace.visualstudio.com/items?itemName=zadvorny.theme-happy-hipster](https://marketplace.visualstudio.com/items?itemName=zadvorny.theme-happy-hipster)
+
+Канал VueJS.fun: [https://www.youtube.com/channel/UCrpvmiGAeKSkmM-fpyuwYjw](https://www.youtube.com/channel/UCrpvmiGAeKSkmM-fpyuwYjw)
