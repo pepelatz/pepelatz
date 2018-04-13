@@ -1,5 +1,62 @@
 <% include layout/header.ejs %>
 
-  <h3>hello!</h3>
+  <div class="main">
+    <div class="container">
+      <div class="content">
+        <div class="post">
+          <div class="top">
+            <h2>Заголовок поста</h2>
+          </div>
+          <div class="body">
+            <p>
+            «Кин-дза-дза́!» — полнометражный двухсерийный трагикомедийный художественный фильм в жанре антиутопии, снятый на киностудии «Мосфильм» в 1986 году режиссёром Георгием Данелией. Картина «Кин-дза-дза!» оказала влияние на современную русскоязычную культуру — вымышленные слова.
+          </p>
+          </div>
+          <div class="bottom">
+            <div class="author">
+              Автор:
+              <a href="/">Гедеван</a>
+            </div>
+            <a href="/">Комментарии</a>
+          </div>
+        </div>
+        <div class="post">
+          <div class="top">
+            <h2>Заголовок поста</h2>
+          </div>
+          <div class="body">
+            <p>
+            «Кин-дза-дза́!» — полнометражный двухсерийный трагикомедийный художественный фильм в жанре антиутопии, снятый на киностудии «Мосфильм» в 1986 году режиссёром Георгием Данелией. Картина «Кин-дза-дза!» оказала влияние на современную русскоязычную культуру — вымышленные слова.
+          </p>
+          </div>
+          <div class="bottom">
+            <div class="author">
+              Автор:
+              <a href="/">Гедеван</a>
+            </div>
+            <a href="/">Комментарии</a>
+          </div>
+        </div>
+      </div>
+      <div class="sidebar">
+        <div class="box auth">
+          <h2>Вход</h2>
+          <form method="post">
+            <div class="form-group">
+              <label for="login">Логин</label>
+              <input type="text" id="login" name="login" />
+            </div>
+            <div class="form-group">
+              <label for="password">Пароль</label>
+              <input type="password" id="password" name="password" />
+            </div>
+
+            <button class="login-button">Войти</button>
+          </form>
+        </div>
+        <div class="box">box2</div>
+      </div>
+    </div>
+  </div>
 
   <% include layout/footer.ejs %>

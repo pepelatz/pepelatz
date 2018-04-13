@@ -1,0 +1,66 @@
+.main {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+
+  .container {
+    .content {
+      flex: 3;
+      margin-right: $freeSpace;
+      margin-bottom: $freeSpace;
+      // padding: $freeSpace;
+      min-height: 100px;
+      // border: 1px solid $greyColor;
+    }
+
+    .sidebar {
+      flex: 1;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+
+      .box {
+        margin-bottom: $freeSpace;
+        padding: $freeSpace;
+        width: 100%;
+        min-height: 100px;
+        border: 1px solid $greyColor;
+        background-color: $whiteColor;
+      }
+    }
+
+    /* Portrait tablets and small desktops */
+    @media (min-width: 768px) and (max-width: 991px) {
+      .content {
+        flex: 1;
+        margin-right: 0;
+        margin-bottom: $freeSpace;
+      }
+
+      .sidebar {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: flex-start;
+
+        .box {
+          margin-right: $freeSpace;
+        }
+      }
+    }
+
+    /* Landscape phones and portrait tablets */
+    @media (max-width: 767px) {
+      .content {
+        flex: 1;
+        margin-right: 0;
+        margin-bottom: $freeSpace;
+      }
+    }
+  }
+
+  @media (max-width: 991px) {
+    .container {
+      flex-direction: column-reverse;
+    }
+  }
+}
