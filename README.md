@@ -37,3 +37,11 @@ Mongoose: [http://mongoosejs.com/](http://mongoosejs.com/)
 Моя тема VS Code: [https://marketplace.visualstudio.com/items?itemName=zadvorny.theme-happy-hipster](https://marketplace.visualstudio.com/items?itemName=zadvorny.theme-happy-hipster)
 
 Канал VueJS.fun: [https://www.youtube.com/channel/UCrpvmiGAeKSkmM-fpyuwYjw](https://www.youtube.com/channel/UCrpvmiGAeKSkmM-fpyuwYjw)
+
+## Видео 6 - 8
+
+Go to: [https://github.com/pepelatz/gravitzapa](https://github.com/pepelatz/gravitzapa)
+
+## Видео 9
+
+## Видео 10
