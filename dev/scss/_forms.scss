@@ -83,3 +83,14 @@ textarea {
   padding: 8px 10px;
   min-height: 80px;
 }
+
+input,
+textarea {
+  &.error {
+    border-color: $errorColor;
+    color: $errorColor;
+    &::placeholder {
+      color: lighten($errorColor, 20%);
+    }
+  }
+}
