@@ -8,12 +8,12 @@
   },
   "license": "MIT",
   "scripts": {
-    "start": "cross-env PORT=3001 node index.js",
-    "dev": "gulp & nodemon index.js"
+    "start": "node app.js",
+    "dev": "gulp & nodemon app.js"
   },
   "dependencies": {
     "body-parser": "^1.18.2",
-    "cross-env": "^5.1.1",
+    "dotenv": "^5.0.1",
     "ejs": "^2.5.7",
     "express": "^4.16.2",
     "gulp-concat": "^2.6.1",
