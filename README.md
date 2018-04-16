@@ -45,3 +45,9 @@ Go to: [https://github.com/pepelatz/gravitzapa](https://github.com/pepelatz/grav
 ## Видео 9
 
 ## Видео 10
+
+## Видео 11
+
+## Видео 12
+
+bcrypt-nodejs: [https://github.com/shaneGirish/bcrypt-nodejs](https://github.com/shaneGirish/bcrypt-nodejs)
