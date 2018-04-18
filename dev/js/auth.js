@@ -5,6 +5,8 @@ $(function() {
   $('.switch-button').on('click', function(e) {
     e.preventDefault();
 
+    $('input').val('');
+
     if (flag) {
       flag = false;
       $('.register').show('slow');

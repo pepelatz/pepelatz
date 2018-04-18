@@ -11,10 +11,21 @@ router.post('/register', (req, res) => {
   const passwordConfirm = req.body.passwordConfirm;
 
   if (!login || !password || !passwordConfirm) {
+    const fields = [];
+    if (!login) fields.push('login');
+    if (!password) fields.push('password');
+    if (!passwordConfirm) fields.push('passwordConfirm');
+
     res.json({
       ok: false,
       error: 'Все поля должны быть заполнены!',
-      fields: ['login', 'password', 'passwordConfirm']
+      fields
+    });
+  } else if (!/^[a-zA-Z0-9]+$/.test(login)) {
+    res.json({
+      ok: false,
+      error: 'Только латинские буквы и цифры!',
+      fields: ['login']
     });
   } else if (login.length < 3 || login.length > 16) {
     res.json({
@@ -27,6 +38,12 @@ router.post('/register', (req, res) => {
       ok: false,
       error: 'Пароли не совпадают!',
       fields: ['password', 'passwordConfirm']
+    });
+  } else if (password.length < 5) {
+    res.json({
+      ok: false,
+      error: 'Минимальная длина пароля 5 символов!',
+      fields: ['password']
     });
   } else {
     models.User.findOne({
