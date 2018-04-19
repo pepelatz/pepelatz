@@ -51,3 +51,10 @@ Go to: [https://github.com/pepelatz/gravitzapa](https://github.com/pepelatz/grav
 ## Видео 12
 
 bcrypt-nodejs: [https://github.com/shaneGirish/bcrypt-nodejs](https://github.com/shaneGirish/bcrypt-nodejs)
+
+## Видео 13
+
+## Видео 14
+
+session: [https://github.com/expressjs/session](https://github.com/expressjs/session)
+connect-mongo: [https://github.com/jdesboeufs/connect-mongo](https://github.com/jdesboeufs/connect-mongo)

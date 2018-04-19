@@ -4,7 +4,7 @@ const bcrypt = require('bcrypt-nodejs');
 
 const models = require('../models');
 
-// POST is authorized
+// POST is register
 router.post('/register', (req, res) => {
   const login = req.body.login;
   const password = req.body.password;
@@ -57,6 +57,8 @@ router.post('/register', (req, res) => {
           })
             .then(user => {
               console.log(user);
+              req.session.userId = user.id;
+              req.session.userLogin = user.login;
               res.json({
                 ok: true
               });
@@ -77,6 +79,72 @@ router.post('/register', (req, res) => {
         });
       }
     });
+  }
+});
+
+// POST is register
+router.post('/login', (req, res) => {
+  const login = req.body.login;
+  const password = req.body.password;
+
+  if (!login || !password) {
+    const fields = [];
+    if (!login) fields.push('login');
+    if (!password) fields.push('password');
+
+    res.json({
+      ok: false,
+      error: 'Все поля должны быть заполнены!',
+      fields
+    });
+  } else {
+    models.User.findOne({
+      login
+    })
+      .then(user => {
+        if (!user) {
+          res.json({
+            ok: false,
+            error: 'Логин и пароль неверны!',
+            fields: ['login', 'password']
+          });
+        } else {
+          bcrypt.compare(password, user.password, function(err, result) {
+            if (!result) {
+              res.json({
+                ok: false,
+                error: 'Логин и пароль неверны!',
+                fields: ['login', 'password']
+              });
+            } else {
+              req.session.userId = user.id;
+              req.session.userLogin = user.login;
+              res.json({
+                ok: true
+              });
+            }
+          });
+        }
+      })
+      .catch(err => {
+        console.log(err);
+        res.json({
+          ok: false,
+          error: 'Ошибка, попробуйте позже!'
+        });
+      });
+  }
+});
+
+// GET for logout
+router.get('/logout', (req, res) => {
+  if (req.session) {
+    // delete session object
+    req.session.destroy(() => {
+      res.redirect('/');
+    });
+  } else {
+    res.redirect('/');
   }
 });
 

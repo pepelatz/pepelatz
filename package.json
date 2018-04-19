@@ -14,9 +14,11 @@
   "dependencies": {
     "bcrypt-nodejs": "^0.0.3",
     "body-parser": "^1.18.2",
+    "connect-mongo": "^2.0.1",
     "dotenv": "^5.0.1",
     "ejs": "^2.5.7",
     "express": "^4.16.2",
+    "express-session": "^1.15.6",
     "gulp-concat": "^2.6.1",
     "gulp-uglifyjs": "^0.6.2",
     "jquery": "^3.3.1",
