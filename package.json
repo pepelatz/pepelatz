@@ -22,6 +22,7 @@
     "gulp-concat": "^2.6.1",
     "gulp-uglifyjs": "^0.6.2",
     "jquery": "^3.3.1",
+    "medium-editor": "^5.23.3",
     "mongoose": "^4.13.7",
     "static-asset": "^0.6.0"
   },

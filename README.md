@@ -58,3 +58,7 @@ bcrypt-nodejs: [https://github.com/shaneGirish/bcrypt-nodejs](https://github.com
 
 session: [https://github.com/expressjs/session](https://github.com/expressjs/session)
 connect-mongo: [https://github.com/jdesboeufs/connect-mongo](https://github.com/jdesboeufs/connect-mongo)
+
+## Видео 15
+
+medium-editor: [https://github.com/yabwe/medium-editor](https://github.com/yabwe/medium-editor)
