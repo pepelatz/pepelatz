@@ -50,7 +50,7 @@
     #post-body {
       min-height: 200px !important;
       background-color: $whiteColor !important;
-      border: 1px solid $greyColor !important;
+      border: 1px solid $greyColor;
       padding: 8px 10px;
       outline: none;
     }

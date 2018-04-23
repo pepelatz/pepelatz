@@ -85,9 +85,10 @@ textarea {
 }
 
 input,
-textarea {
+textarea,
+div {
   &.error {
-    border-color: $errorColor;
+    border-color: $errorColor !important;
     color: $errorColor;
     &::placeholder {
       color: lighten($errorColor, 20%);

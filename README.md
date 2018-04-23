@@ -62,3 +62,9 @@ connect-mongo: [https://github.com/jdesboeufs/connect-mongo](https://github.com/
 ## Видео 15
 
 medium-editor: [https://github.com/yabwe/medium-editor](https://github.com/yabwe/medium-editor)
+
+## Видео 16
+
+mongoose-url-slugs: [https://github.com/talha-asad/mongoose-url-slugs](https://github.com/talha-asad/mongoose-url-slugs)
+
+turndown: [https://github.com/domchristie/turndown](https://github.com/domchristie/turndown)

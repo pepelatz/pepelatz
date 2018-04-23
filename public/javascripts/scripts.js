@@ -21,9 +21,9 @@ $(function() {
   });
 
   // clear
-  $('input').on('focus', function() {
-    $('p.error').remove();
-    $('input').removeClass('error');
+  $('form.login input, form.register input').on('focus', function() {
+    $('form.login p.error, form.register p.error').remove();
+    $('form.login input, form.register input').removeClass('error');
   });
 
   // register
@@ -102,6 +102,12 @@ $(function() {
     }
   });
 
+  // clear
+  $('.post-form input, #post-body').on('focus', function() {
+    $('.post-form p.error').remove();
+    $('.post-form input, #post-body').removeClass('error');
+  });
+
   // publish
   $('.publish-button').on('click', function(e) {
     e.preventDefault();
@@ -119,15 +125,15 @@ $(function() {
     }).done(function(data) {
       console.log(data);
       if (!data.ok) {
-        // $('.register h2').after('<p class="error">' + data.error + '</p>');
-        // if (data.fields) {
-        //   data.fields.forEach(function(item) {
-        //     $('input[name=' + item + ']').addClass('error');
-        //   });
-        // }
+        $('.post-form h2').after('<p class="error">' + data.error + '</p>');
+        if (data.fields) {
+          data.fields.forEach(function(item) {
+            $('#post-' + item).addClass('error');
+          });
+        }
       } else {
         // $('.register h2').after('<p class="success">Отлично!</p>');
-        // $(location).attr('href', '/');
+        $(location).attr('href', '/');
       }
     });
   });

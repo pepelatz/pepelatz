@@ -24,7 +24,10 @@
     "jquery": "^3.3.1",
     "medium-editor": "^5.23.3",
     "mongoose": "^4.13.7",
-    "static-asset": "^0.6.0"
+    "mongoose-url-slugs": "^1.0.2",
+    "static-asset": "^0.6.0",
+    "transliter": "^2.2.1",
+    "turndown": "^4.0.1"
   },
   "devDependencies": {
     "eslint": "^4.13.1",

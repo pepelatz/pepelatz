@@ -21,9 +21,9 @@ $(function() {
   });
 
   // clear
-  $('input').on('focus', function() {
-    $('p.error').remove();
-    $('input').removeClass('error');
+  $('form.login input, form.register input').on('focus', function() {
+    $('form.login p.error, form.register p.error').remove();
+    $('form.login input, form.register input').removeClass('error');
   });
 
   // register
