@@ -49,18 +49,8 @@ app.use(
   express.static(path.join(__dirname, 'node_modules', 'jquery', 'dist'))
 );
 
-// routers
-app.get('/', (req, res) => {
-  const id = req.session.userId;
-  const login = req.session.userLogin;
-
-  res.render('index', {
-    user: {
-      id,
-      login
-    }
-  });
-});
+// routes
+app.use('/', routes.archive);
 app.use('/api/auth', routes.auth);
 app.use('/post', routes.post);
 

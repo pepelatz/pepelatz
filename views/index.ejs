@@ -3,40 +3,40 @@
   <div class="main">
     <div class="container">
       <div class="content">
-        <div class="post">
-          <div class="top">
-            <h2>Заголовок поста</h2>
-          </div>
-          <div class="body">
-            <p>
-            «Кин-дза-дза́!» — полнометражный двухсерийный трагикомедийный художественный фильм в жанре антиутопии, снятый на киностудии «Мосфильм» в 1986 году режиссёром Георгием Данелией. Картина «Кин-дза-дза!» оказала влияние на современную русскоязычную культуру — вымышленные слова.
-          </p>
-          </div>
-          <div class="bottom">
-            <div class="author">
-              Автор:
-              <a href="/">Гедеван</a>
+        <% for (var i = 0; i < posts.length; i++) { %>
+          <div class="post">
+            <div class="top">
+              <h2>
+                <%=posts[i].title %>
+              </h2>
             </div>
-            <a href="/">Комментарии</a>
-          </div>
-        </div>
-        <div class="post">
-          <div class="top">
-            <h2>Заголовок поста</h2>
-          </div>
-          <div class="body">
-            <p>
-            «Кин-дза-дза́!» — полнометражный двухсерийный трагикомедийный художественный фильм в жанре антиутопии, снятый на киностудии «Мосфильм» в 1986 году режиссёром Георгием Данелией. Картина «Кин-дза-дза!» оказала влияние на современную русскоязычную культуру — вымышленные слова.
-          </p>
-          </div>
-          <div class="bottom">
-            <div class="author">
-              Автор:
-              <a href="/">Гедеван</a>
+            <div class="body">
+              <p><%=posts[i].body %></p>
             </div>
-            <a href="/">Комментарии</a>
+            <div class="bottom">
+              <div class="author">
+                Автор:
+                <a href="/">Гедеван</a>
+              </div>
+              <a href="/">Комментарии</a>
+            </div>
           </div>
-        </div>
+          <% } %>
+
+            <div class="pagination">
+              <% if (current > 2) { %>
+                <a class="new" href="/archive/<%= Number(current) - 1 %>">← К новым</a>
+                <% } %>
+                  <% if (current == 2) { %>
+                    <a class="new" href="/">← На главную</a>
+                    <% } %>
+                      <% if (pages > 0 && current < pages) { %>
+                        <a class="old" href="/archive/<%= Number(current) + 1 %>">К старым →</a>
+                        <% } %>
+
+            </div>
+
+
       </div>
 
       <% include layout/sidebar.ejs %>

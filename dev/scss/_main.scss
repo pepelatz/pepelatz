@@ -11,6 +11,15 @@
       // padding: $freeSpace;
       min-height: 100px;
       // border: 1px solid $greyColor;
+      .pagination {
+        font-size: 1.15em;
+        .old {
+          float: right;
+        }
+        .new {
+          float: left;
+        }
+      }
     }
 
     .sidebar {
