@@ -72,3 +72,5 @@ turndown: [https://github.com/domchristie/turndown](https://github.com/domchrist
 ## Видео 17
 
 ## Видео 18
+
+## Видео 19

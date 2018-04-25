@@ -1,0 +1,11 @@
+a,
+.link,
+.a {
+  color: $primaryColor;
+  text-decoration: none;
+  cursor: pointer;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
