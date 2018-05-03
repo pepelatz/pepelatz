@@ -1,4 +1,4 @@
-<% include layout/header.ejs %>
+<% include ../layout/header.ejs %>
 
   <div class="main">
     <div class="container">
@@ -19,7 +19,9 @@
             <div class="bottom">
               <div class="author">
                 Автор:
-                <a href="/">Гедеван</a>
+                <a href="/users/<%=posts[i].owner.login %>">
+                  <%=posts[i].owner.login %>
+                </a>
               </div>
               <a href="/">Комментарии</a>
             </div>
@@ -42,9 +44,9 @@
 
       </div>
 
-      <% include layout/sidebar.ejs %>
+      <% include ../layout/sidebar.ejs %>
 
     </div>
   </div>
 
-  <% include layout/footer.ejs %>
+  <% include ../layout/footer.ejs %>

@@ -1,0 +1,49 @@
+<% include ../layout/header.ejs %>
+
+  <div class="main">
+    <div class="container">
+      <div class="content">
+        <% for (var i = 0; i < posts.length; i++) { %>
+          <div class="post">
+            <div class="top">
+              <h2>
+                <a href="/posts/<%=posts[i].url %>">
+                  <%=posts[i].title %>
+                </a>
+
+              </h2>
+            </div>
+            <div class="body">
+              <p><%=posts[i].body %></p>
+            </div>
+            <div class="bottom">
+              <div class="author">
+
+              </div>
+              <a href="/">Комментарии</a>
+            </div>
+          </div>
+          <% } %>
+
+            <div class="pagination">
+              <% if (current > 2) { %>
+                <a class="new" href="/users/<%=_user.login %>/<%= Number(current) - 1 %>">← К новым</a>
+                <% } %>
+                  <% if (current == 2) { %>
+                    <a class="new" href="/users/<%=_user.login %>">← На первую</a>
+                    <% } %>
+                      <% if (pages > 0 && current < pages) { %>
+                        <a class="old" href="/users/<%=_user.login %>/<%= Number(current) + 1 %>">К старым →</a>
+                        <% } %>
+
+            </div>
+
+
+      </div>
+
+      <% include ../layout/sidebar.ejs %>
+
+    </div>
+  </div>
+
+  <% include ../layout/footer.ejs %>
