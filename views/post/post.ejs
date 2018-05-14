@@ -11,14 +11,31 @@
             </h2>
           </div>
           <div class="body">
-            <p><%=post.body %></p>
+            <p>
+              <%=post.body %>
+            </p>
           </div>
           <div class="bottom">
             <div class="author">
               Автор:
               <a href="/">Гедеван</a>
             </div>
-            <a href="/">Комментарии</a>
+          </div>
+        </div>
+
+        <div class="comments" id="<%=post.id %>">
+          <h3>Комментарии</h3>
+          <div class="comment-list">
+            <%- include('../layout/comments.ejs', {items: comments}) %>
+
+              <span class="link" id="new">Оставить комментарий</span>
+              <form class="comment">
+                <textarea name="body"></textarea>
+                <div class="buttons">
+                  <button class="cancel secondary">Отмена</button>
+                  <button class="send">Отправить</button>
+                </div>
+              </form>
           </div>
         </div>
 

@@ -78,3 +78,11 @@ turndown: [https://github.com/domchristie/turndown](https://github.com/domchrist
 ## Видео 20
 
 ## Видео 21
+
+## Видео 22
+
+Model Tree Structures with Child References: [https://docs.mongodb.com/manual/tutorial/model-tree-structures-with-child-references/](https://docs.mongodb.com/manual/tutorial/model-tree-structures-with-child-references/)
+
+mongoose-autopopulate: [https://github.com/mongodb-js/mongoose-autopopulate](https://github.com/mongodb-js/mongoose-autopopulate)
+
+momentjs: [http://momentjs.com/docs/](http://momentjs.com/docs/)
