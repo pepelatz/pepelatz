@@ -15,6 +15,7 @@
     display: none;
     flex-direction: column;
     max-width: 500px;
+    margin-top: $freeSpace * 0.4;
 
     textarea {
       margin-bottom: $freeSpace * 0.8;
@@ -33,6 +34,9 @@
   }
 
   .comment-list {
+    & > ul {
+      margin-bottom: $freeSpace * 1.3;
+    }
     ul {
       list-style: none;
       border-left: 1px solid $greyColor;

@@ -154,8 +154,9 @@ $(function() {
   var commentForm;
   var parentId;
 
-  // add form
-  $('#new, #reply').on('click', function() {
+  function form(isNew, comment) {
+    $('.reply').show();
+
     if (commentForm) {
       commentForm.remove();
     }
@@ -163,21 +164,33 @@ $(function() {
 
     commentForm = $('.comment').clone(true, true);
 
-    if ($(this).attr('id') === 'new') {
+    if (isNew) {
+      commentForm.find('.cancel').hide();
       commentForm.appendTo('.comment-list');
     } else {
-      var parentComment = $(this).parent();
+      var parentComment = $(comment).parent();
       parentId = parentComment.attr('id');
-      $(this).after(commentForm);
+      $(comment).after(commentForm);
     }
 
     commentForm.css({ display: 'flex' });
+  }
+
+  // load
+  form(true);
+
+  // add form
+  $('.reply').on('click', function() {
+    form(false, this);
+    $(this).hide();
   });
 
   // add form
   $('form.comment .cancel').on('click', function(e) {
     e.preventDefault();
     commentForm.remove();
+    // load
+    form(true);
   });
 
   // publish
@@ -199,15 +212,22 @@ $(function() {
     }).done(function(data) {
       console.log(data);
       if (!data.ok) {
-        $('.post-form h2').after('<p class="error">' + data.error + '</p>');
-        if (data.fields) {
-          data.fields.forEach(function(item) {
-            $('#post-' + item).addClass('error');
-          });
+        if (data.error === undefined) {
+          data.error = 'Неизвестная ошибка!';
         }
+        $(commentForm).prepend('<p class="error">' + data.error + '</p>');
       } else {
-        // $('.register h2').after('<p class="success">Отлично!</p>');
-        $(location).attr('href', '/');
+        var newComment =
+          '<ul><li style="background-color:#ffffe0;"><div class="head"><a href="/users/' +
+          data.login +
+          '">' +
+          data.login +
+          '</a><spam class="date">Только что</spam></div>' +
+          data.body +
+          '</li></ul>';
+
+        $(commentForm).after(newComment);
+        form(true);
       }
     });
   });
