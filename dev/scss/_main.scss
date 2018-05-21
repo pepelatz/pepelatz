@@ -36,6 +36,13 @@
         border: 1px solid $greyColor;
         background-color: $whiteColor;
         border-radius: $borderRadius;
+
+        ul {
+          list-style: none;
+          li {
+            padding: 2px 0 2px;
+          }
+        }
       }
     }
 
