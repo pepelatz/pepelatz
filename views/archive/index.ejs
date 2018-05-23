@@ -10,6 +10,10 @@
                 <a href="/posts/<%=posts[i].url %>">
                   <%=posts[i].title %>
                 </a>
+                <% if (posts[i].owner.login === user.login) { %>
+
+                  <a style="color: black;text-decoration: none;" href="/post/edit/<%=posts[i].id %>">✎</a>
+                  <% } %>
 
               </h2>
             </div>

@@ -86,3 +86,15 @@ Model Tree Structures with Child References: [https://docs.mongodb.com/manual/tu
 mongoose-autopopulate: [https://github.com/mongodb-js/mongoose-autopopulate](https://github.com/mongodb-js/mongoose-autopopulate)
 
 momentjs: [http://momentjs.com/docs/](http://momentjs.com/docs/)
+
+## Видео 23
+
+## Видео 24
+
+## Видео 25
+
+multer: [https://github.com/expressjs/multer](https://github.com/expressjs/multer)
+
+sharp: [http://sharp.dimens.io/en/stable/](http://sharp.dimens.io/en/stable/)
+
+mkdirp: [https://github.com/substack/node-mkdirp](https://github.com/substack/node-mkdirp)
