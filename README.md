@@ -93,6 +93,10 @@ momentjs: [http://momentjs.com/docs/](http://momentjs.com/docs/)
 
 ## Видео 25
 
+## Видео 26
+
+## Видео 27
+
 multer: [https://github.com/expressjs/multer](https://github.com/expressjs/multer)
 
 sharp: [http://sharp.dimens.io/en/stable/](http://sharp.dimens.io/en/stable/)

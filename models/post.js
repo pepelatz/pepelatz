@@ -26,7 +26,13 @@ const schema = new Schema(
     commentCount: {
       type: Number,
       default: 0
-    }
+    },
+    uploads: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: 'Upload'
+      }
+    ]
   },
   {
     timestamps: true

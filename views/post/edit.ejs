@@ -27,6 +27,7 @@
         </form>
 
         <form method="POST" enctype="multipart/form-data" id="fileinfo">
+          <input type="hidden" id="post-id" name="postId" value="<%= post.id %>">
           <input type="file" name="file" id="file" required />
           <button class="upload-button">Загрузить</button>
         </form>
