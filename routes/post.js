@@ -14,7 +14,7 @@ router.get('/edit/:id', async (req, res, next) => {
     res.redirect('/');
   } else {
     try {
-      const post = await models.Post.findById(id);
+      const post = await models.Post.findById(id).populate('uploads');
 
       if (!post) {
         const err = new Error('Not Found');
