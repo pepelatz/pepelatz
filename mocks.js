@@ -3,7 +3,7 @@ const tr = require('transliter');
 
 const models = require('./models');
 
-const owner = '5af80fcc6a283b1029fbd8e0';
+const owner = '5b30f5115f52bd1515a82d37';
 
 module.exports = async () => {
   try {

@@ -102,3 +102,11 @@ multer: [https://github.com/expressjs/multer](https://github.com/expressjs/multe
 sharp: [http://sharp.dimens.io/en/stable/](http://sharp.dimens.io/en/stable/)
 
 mkdirp: [https://github.com/substack/node-mkdirp](https://github.com/substack/node-mkdirp)
+
+## Видео 28
+
+## Видео 29
+
+example: [https://stackoverflow.com/questions/1064089/inserting-a-text-where-cursor-is-using-javascript-jquery](https://stackoverflow.com/questions/1064089/inserting-a-text-where-cursor-is-using-javascript-jquery)
+
+<!-- ![example image](example-image.jpg) -->
