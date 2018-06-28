@@ -21,10 +21,7 @@ mongoose.connection
     console.log(`Connected to ${info.host}:${info.port}/${info.name}`);
     // require('./mocks')();
   });
-mongoose.connect(
-  config.MONGO_URL,
-  { useMongoClient: true }
-);
+mongoose.connect(config.MONGO_URL);
 
 // express
 const app = express();
