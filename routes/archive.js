@@ -31,7 +31,7 @@ async function posts(req, res) {
         post.uploads.forEach(upload => {
           body = body.replace(
             `image${upload.id}`,
-            `/${config.DESTINATION}${upload.path}`
+            `/${config.UPLOADS_ROUTE}${upload.path}`
           );
         });
       }
@@ -108,7 +108,7 @@ router.get('/posts/:post', async (req, res, next) => {
           post.uploads.forEach(upload => {
             body = body.replace(
               `image${upload.id}`,
-              `/${config.DESTINATION}${upload.path}`
+              `/${config.UPLOADS_ROUTE}${upload.path}`
             );
           });
         }
@@ -164,7 +164,7 @@ router.get('/users/:login/:page*?', async (req, res) => {
         post.uploads.forEach(upload => {
           body = body.replace(
             `image${upload.id}`,
-            `/${config.DESTINATION}${upload.path}`
+            `/${config.UPLOADS_ROUTE}${upload.path}`
           );
         });
       }
