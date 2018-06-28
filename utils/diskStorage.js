@@ -3,6 +3,7 @@ var os = require('os');
 var path = require('path');
 var crypto = require('crypto');
 var mkdirp = require('mkdirp');
+var gm = require('gm').subClass({ imageMagick: true });
 
 function getFilename(req, file, cb) {
   crypto.pseudoRandomBytes(16, function(err, raw) {
@@ -25,7 +26,6 @@ function DiskStorage(opts) {
   } else {
     this.getDestination = opts.destination || getDestination;
   }
-  this.getSharp = opts.sharp;
 }
 
 DiskStorage.prototype._handleFile = function _handleFile(req, file, cb) {
@@ -37,21 +37,24 @@ DiskStorage.prototype._handleFile = function _handleFile(req, file, cb) {
     that.getFilename(req, file, function(err, filename) {
       if (err) return cb(err);
 
-      that.getSharp(req, file, function(err, risizer) {
-        if (err) return cb(err);
+      var finalPath = path.join(destination, filename);
+      var outStream = fs.createWriteStream(finalPath);
 
-        var finalPath = path.join(destination, filename);
-        var outStream = fs.createWriteStream(finalPath);
+      // file.stream.pipe(risizer).pipe(outStream);
+      gm(file.stream)
+        .resize('1024', '768', '>')
+        // eslint-disable-next-line
+        .stream(function(err, stdout, stderr) {
+          stdout.pipe(outStream);
+        });
 
-        file.stream.pipe(risizer).pipe(outStream);
-        outStream.on('error', cb);
-        outStream.on('finish', function() {
-          cb(null, {
-            destination: destination,
-            filename: filename,
-            path: finalPath,
-            size: outStream.bytesWritten
-          });
+      outStream.on('error', cb);
+      outStream.on('finish', function() {
+        cb(null, {
+          destination: destination,
+          filename: filename,
+          path: finalPath,
+          size: outStream.bytesWritten
         });
       });
     });
