@@ -10,8 +10,8 @@
   "scripts": {
     "start": "node app.js",
     "dev": "gulp & nodemon app.js",
-    "restart": "pm2 startOrRestart ecosystem.config.js",
-    "deploy": "pm2 deploy ecosystem.config.js production"
+    "restart": "pm2 startOrRestart ../pepelatz.ecosystem.js",
+    "deploy": "pm2 deploy ../pepelatz.ecosystem.js production"
   },
   "dependencies": {
     "bcrypt-nodejs": "^0.0.3",
