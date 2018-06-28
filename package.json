@@ -9,7 +9,9 @@
   "license": "MIT",
   "scripts": {
     "start": "node app.js",
-    "dev": "gulp & nodemon app.js"
+    "dev": "gulp & nodemon app.js",
+    "restart": "pm2 startOrRestart ecosystem.config.js",
+    "deploy": "pm2 deploy ecosystem.config.js production"
   },
   "dependencies": {
     "bcrypt-nodejs": "^0.0.3",
