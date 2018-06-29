@@ -15,9 +15,15 @@
 
 
           <%= item.body %>
-            <span class="link reply">ответить</span>
+            <% if(!user.id && !user.login) { %>
+              <span class="link" onclick="alert('Для комментирования нужно авторизоваться!')">ответить</span>
+              <% } else { %>
+                <span class="link reply">ответить</span>
+                <% }  %>
 
-            <%- include('./comments.ejs', {items: item.children}) %>
+
+
+                  <%- include('./comments.ejs', {items: item.children}) %>
         </li>
         <% }) %>
 

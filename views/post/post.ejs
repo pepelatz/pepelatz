@@ -40,14 +40,20 @@
           <div class="comment-list">
             <%- include('../layout/comments.ejs', {items: comments}) %>
 
+              <% if(!user.id && !user.login) { %>
+                <p>
+                  <i>Для комментирования нужно авторизоваться</i>
+                </p>
+                <% } else { %>
+                  <form class="comment">
+                    <textarea name="body"></textarea>
+                    <div class="buttons">
+                      <button class="cancel secondary">Отмена</button>
+                      <button class="send">Отправить</button>
+                    </div>
+                  </form>
+                  <% } %>
 
-              <form class="comment">
-                <textarea name="body"></textarea>
-                <div class="buttons">
-                  <button class="cancel secondary">Отмена</button>
-                  <button class="send">Отправить</button>
-                </div>
-              </form>
           </div>
         </div>
 
