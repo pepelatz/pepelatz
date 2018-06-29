@@ -167,7 +167,9 @@ $(function() {
       success: function(data) {
         console.log(data);
         $('#fileinfo').prepend(
-          '<div class="img-container"><img src="/uploads' +
+          '<div class="img-container" id="' +
+            data.id +
+            '"><img src="/uploads' +
             data.filePath +
             '" alt="" /></div>'
         );
@@ -179,7 +181,8 @@ $(function() {
   });
 
   // inserting image
-  $('.img-container').on('click', function() {
+  // $('.img-container').on('click', function() {
+  $('body').on('click', '.img-container', function() {
     var imageId = $(this).attr('id');
     var txt = $('#post-body');
     var caretPos = txt[0].selectionStart;
