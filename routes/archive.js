@@ -8,8 +8,7 @@ const config = require('../config');
 const models = require('../models');
 
 async function posts(req, res) {
-  const userId = req.session.userId;
-  const userLogin = req.session.userLogin;
+  const { userId, userLogin, userRole } = req.session;
   const perPage = +config.PER_PAGE;
   const page = req.params.page || 1;
 
@@ -51,7 +50,8 @@ async function posts(req, res) {
       pages: Math.ceil(count / perPage),
       user: {
         id: userId,
-        login: userLogin
+        login: userLogin,
+        role: userRole
       }
     });
   } catch (error) {
@@ -76,8 +76,10 @@ router.get('/posts/:post', async (req, res, next) => {
     try {
       const post = await models.Post.findOne({
         url,
-        status: 'published'
-      }).populate('uploads');
+        status: { $ne: 'draft' }
+      })
+        .populate('uploads')
+        .populate('owner');
 
       if (!post) {
         const err = new Error('Not Found');
@@ -133,8 +135,7 @@ router.get('/posts/:post', async (req, res, next) => {
 
 // users posts
 router.get('/users/:login/:page*?', async (req, res) => {
-  const userId = req.session.userId;
-  const userLogin = req.session.userLogin;
+  const { userId, userLogin, userRole } = req.session;
   const perPage = +config.PER_PAGE;
   const page = req.params.page || 1;
   const login = req.params.login;
@@ -145,11 +146,13 @@ router.get('/users/:login/:page*?', async (req, res) => {
     });
 
     let posts = await models.Post.find({
-      owner: user.id
+      owner: user.id,
+      status: { $ne: 'draft' }
     })
       .skip(perPage * page - perPage)
       .limit(perPage)
       .sort({ createdAt: -1 })
+      .populate('owner')
       .populate('uploads');
 
     const count = await models.Post.count({
@@ -160,6 +163,7 @@ router.get('/users/:login/:page*?', async (req, res) => {
 
     posts = posts.map(post => {
       let body = post.body;
+
       if (post.uploads.length) {
         post.uploads.forEach(upload => {
           body = body.replace(
@@ -181,10 +185,12 @@ router.get('/users/:login/:page*?', async (req, res) => {
       pages: Math.ceil(count / perPage),
       user: {
         id: userId,
-        login: userLogin
+        login: userLogin,
+        role: userRole
       }
     });
   } catch (error) {
+    console.log(error);
     throw new Error('Server Error');
   }
 });

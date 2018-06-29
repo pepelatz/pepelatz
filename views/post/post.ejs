@@ -8,6 +8,10 @@
           <div class="top">
             <h2>
               <%=post.title %>
+                <% if (post.owner.login === user.login) { %>
+
+                  <a style="color: black;text-decoration: none;" href="/post/edit/<%=post.id %>">✎</a>
+                  <% } %>
             </h2>
           </div>
           <div class="body">
@@ -16,10 +20,18 @@
 
           </div>
           <div class="bottom">
-            <div class="author">
-              Автор:
-              <a href="/">Гедеван</a>
-            </div>
+
+            <% if (post.status === 'moderated' && post.owner.login === user.login) { %>
+              <span class="moderated">
+                На главной появится после модерации.
+              </span>
+              <% } %>
+                <div class="author">
+                  Автор:
+                  <a href="/users/<%=post.owner.login %>">
+                    <%=post.owner.login %>
+                  </a>
+                </div>
           </div>
         </div>
 

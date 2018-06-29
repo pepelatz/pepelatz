@@ -18,28 +18,33 @@
               </h2>
             </div>
             <div class="body">
+
               <%-posts[i].body %>
+
             </div>
             <div class="bottom">
-              <% if (posts[i].status === 'moderated' && posts[i].owner.login === user.login) { %>
-                <span class="moderated">
-                  На главной появится после модерации.
-                </span>
-                <% } %>
-                  <a href="/">Комментарии</a>
+              <div class="author">
+                Автор:
+                <a href="/users/<%=posts[i].owner.login %>">
+                  <%=posts[i].owner.login %>
+                </a>
+              </div>
+              <a href="/posts/<%=posts[i].url %>#<%=posts[i].id %>">Комментарии:
+                <%=posts[i].commentCount %>
+              </a>
             </div>
           </div>
           <% } %>
 
             <div class="pagination">
               <% if (current > 2) { %>
-                <a class="new" href="/users/<%=_user.login %>/<%= Number(current) - 1 %>">← К новым</a>
+                <a class="new" href="/admin/posts/<%= Number(current) - 1 %>">← К новым</a>
                 <% } %>
                   <% if (current == 2) { %>
-                    <a class="new" href="/users/<%=_user.login %>">← На первую</a>
+                    <a class="new" href="/">← На главную</a>
                     <% } %>
                       <% if (pages > 0 && current < pages) { %>
-                        <a class="old" href="/users/<%=_user.login %>/<%= Number(current) + 1 %>">К старым →</a>
+                        <a class="old" href="/admin/posts/<%= Number(current) + 1 %>">К старым →</a>
                         <% } %>
 
             </div>

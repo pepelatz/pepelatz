@@ -59,6 +59,7 @@ router.post('/register', (req, res) => {
               console.log(user);
               req.session.userId = user.id;
               req.session.userLogin = user.login;
+              req.session.userRole = 'user';
               res.json({
                 ok: true
               });
@@ -119,6 +120,7 @@ router.post('/login', (req, res) => {
             } else {
               req.session.userId = user.id;
               req.session.userLogin = user.login;
+              req.session.userRole = user.role;
               res.json({
                 ok: true
               });

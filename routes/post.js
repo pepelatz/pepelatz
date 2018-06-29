@@ -6,32 +6,35 @@ const models = require('../models');
 
 // GET for add
 router.get('/edit/:id', async (req, res, next) => {
-  const userId = req.session.userId;
-  const userLogin = req.session.userLogin;
+  const { userId, userLogin, userRole } = req.session;
   const id = req.params.id.trim().replace(/ +(?= )/g, '');
 
   if (!userId || !userLogin) {
     res.redirect('/');
-  } else {
-    try {
-      const post = await models.Post.findById(id).populate('uploads');
+    return;
+  }
 
-      if (!post) {
-        const err = new Error('Not Found');
-        err.status = 404;
-        next(err);
-      }
+  try {
+    const post = await models.Post.findById(id).populate('uploads');
 
-      res.render('post/edit', {
-        post,
-        user: {
-          id: userId,
-          login: userLogin
-        }
-      });
-    } catch (error) {
-      console.log(error);
+    const success = post.owner.toString() === userId || userRole === 'admin';
+
+    if (!post || !success) {
+      const err = new Error('Not Found');
+      err.status = 404;
+      next(err);
+      return;
     }
+
+    res.render('post/edit', {
+      post,
+      user: {
+        id: userId,
+        login: userLogin
+      }
+    });
+  } catch (error) {
+    console.log(error);
   }
 });
 
@@ -72,8 +75,7 @@ router.get('/add', async (req, res) => {
 
 // POST is add
 router.post('/add', async (req, res) => {
-  const userId = req.session.userId;
-  const userLogin = req.session.userLogin;
+  const { userId, userLogin, userRole } = req.session;
 
   if (!userId || !userLogin) {
     res.redirect('/');
@@ -111,35 +113,55 @@ router.post('/add', async (req, res) => {
         ok: false
       });
     } else {
+      const postStatus = userRole === 'admin' ? 'published' : 'moderated';
       try {
-        const post = await models.Post.findOneAndUpdate(
-          {
-            _id: postId,
-            owner: userId
-          },
-          {
-            title,
-            body,
-            url,
-            owner: userId,
-            status: isDraft ? 'draft' : 'published'
-          },
-          { new: true }
-        );
+        // const post = await models.Post.findOneAndUpdate(
+        //   {
+        //     _id: postId
+        //     // owner: userId
+        //   },
+        //   {
+        //     title,
+        //     body,
+        //     url,
+        //     owner: userId,
+        //     status: isDraft ? 'draft' : postStatus
+        //   },
+        //   { new: true }
+        // );
 
-        // console.log(post);
+        const post = await models.Post.findOne({
+          _id: postId
+        });
 
         if (!post) {
           res.json({
             ok: false,
+            error: 'Пост не найден!'
+          });
+          return;
+        }
+
+        if (!(post.owner.toString() === userId || userRole === 'admin')) {
+          res.json({
+            ok: false,
             error: 'Пост не твой!'
           });
-        } else {
-          res.json({
-            ok: true,
-            post
-          });
+          return;
         }
+
+        post.title = title;
+        post.body = body;
+        post.url = url;
+        post.owner = userId;
+        post.status = isDraft ? 'draft' : postStatus;
+
+        await post.save();
+
+        res.json({
+          ok: true,
+          post
+        });
 
         ///
       } catch (error) {

@@ -10,9 +10,9 @@
                 <a href="/posts/<%=posts[i].url %>">
                   <%=posts[i].title %>
                 </a>
-                <% if (posts[i].owner.login === user.login) { %>
+                <% if (posts[i].owner.login === user.login || user.role === 'admin') { %>
 
-                  <a style="color: black;text-decoration: none;" href="/post/edit/<%=posts[i].id %>">✎</a>
+                  <a class="edit <%= user.role === 'admin' ? 'admin' : 'user' %>" href="/post/edit/<%=posts[i].id %>">✎</a>
                   <% } %>
 
               </h2>

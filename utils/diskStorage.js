@@ -43,7 +43,7 @@ DiskStorage.prototype._handleFile = function _handleFile(req, file, cb) {
       // file.stream.pipe(risizer).pipe(outStream);
       gm(file.stream)
         .resize('1024', '768', '>')
-        .quality(10)
+        .quality(40)
         // eslint-disable-next-line
         .stream(function(err, stdout, stderr) {
           stdout.pipe(outStream);

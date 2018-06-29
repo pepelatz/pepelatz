@@ -19,9 +19,9 @@ const schema = new Schema(
     },
     status: {
       type: String,
-      enum: ['published', 'draft'],
+      enum: ['published', 'moderated', 'draft'],
       required: true,
-      default: 'published'
+      default: 'moderated'
     },
     commentCount: {
       type: Number,
