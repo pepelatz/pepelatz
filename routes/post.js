@@ -3,6 +3,7 @@ const router = express.Router();
 const tr = require('transliter');
 
 const models = require('../models');
+const config = require('../config');
 
 // GET for add
 router.get('/edit/:id', async (req, res, next) => {
@@ -31,7 +32,8 @@ router.get('/edit/:id', async (req, res, next) => {
       user: {
         id: userId,
         login: userLogin
-      }
+      },
+      siteName: `Редактирование поста — ${config.SITE_NAME}`
     });
   } catch (error) {
     console.log(error);

@@ -44,6 +44,11 @@ async function posts(req, res) {
 
     const count = await models.Post.count();
 
+    const siteName =
+      page === 1
+        ? `${config.SITE_NAME} — Привет, мир!`
+        : `Страница ${page} — ${config.SITE_NAME}`;
+
     res.render('archive/index', {
       posts,
       current: page,
@@ -52,7 +57,8 @@ async function posts(req, res) {
         id: userId,
         login: userLogin,
         role: userRole
-      }
+      },
+      siteName
     });
   } catch (error) {
     throw new Error('Server Error');
@@ -124,7 +130,8 @@ router.get('/posts/:post', async (req, res, next) => {
           user: {
             id: userId,
             login: userLogin
-          }
+          },
+          siteName: `${post.title} — ${config.SITE_NAME}`
         });
       }
     } catch (error) {
@@ -178,6 +185,11 @@ router.get('/users/:login/:page*?', async (req, res) => {
       });
     });
 
+    const siteName =
+      page === 1
+        ? `Посты юзера ${login} — ${config.SITE_NAME}`
+        : `Посты юзера ${login}, страница ${page} — ${config.SITE_NAME}`;
+
     res.render('archive/user', {
       posts,
       _user: user,
@@ -187,7 +199,8 @@ router.get('/users/:login/:page*?', async (req, res) => {
         id: userId,
         login: userLogin,
         role: userRole
-      }
+      },
+      siteName
     });
   } catch (error) {
     console.log(error);

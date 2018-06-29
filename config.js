@@ -11,5 +11,6 @@ module.exports = {
   IS_PRODUCTION: process.env.NODE_ENV === 'production',
   PER_PAGE: process.env.PER_PAGE,
   DESTINATION: process.env.DESTINATION || 'uploads',
-  UPLOADS_ROUTE: process.env.UPLOADS_ROUTE || 'uploads'
+  UPLOADS_ROUTE: process.env.UPLOADS_ROUTE || 'uploads',
+  SITE_NAME: process.env.SITE_NAME || 'Пепелац'
 };
