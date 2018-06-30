@@ -1,61 +1,62 @@
 <div class="sidebar">
-  <div class="box auth">
-    <% if(!user.id && !user.login) { %>
+    <div class="box auth">
+        <% if(!user.id && !user.login) { %>
 
-      <form method="post" class="login">
-        <h2>Вход</h2>
-        <div class="form-group">
-          <label for="login-login">Логин</label>
-          <input type="text" id="login-login" name="login" />
-        </div>
-        <div class="form-group">
-          <label for="login-password">Пароль</label>
-          <input type="password" id="login-password" name="password" />
-        </div>
-        <div class="buttons">
-          <button class="switch-button secondary-inverse">Регистрация</button>
-          <button class="login-button">Войти</button>
-        </div>
-      </form>
+        <form method="post" class="login">
+            <h2>Вход</h2>
+            <div class="form-group">
+                <label for="login-login">Логин</label>
+                <input type="text" id="login-login" name="login"/>
+            </div>
+            <div class="form-group">
+                <label for="login-password">Пароль</label>
+                <input type="password" id="login-password" name="password"/>
+            </div>
+            <div class="buttons">
+                <button class="switch-button secondary-inverse">Регистрация</button>
+                <button class="login-button">Войти</button>
+            </div>
+        </form>
 
-      <form method="post" class="register">
-        <h2>Регистрация</h2>
-        <div class="form-group">
-          <label for="register-login">Логин</label>
-          <input type="text" id="register-login" name="login" />
-        </div>
-        <div class="form-group">
-          <label for="register-password">Пароль</label>
-          <input type="password" id="register-password" name="password" />
-        </div>
-        <div class="form-group">
-          <label for="register-password-confirm">Повтори пароль</label>
-          <input type="password" id="register-password-confirm" name="passwordConfirm" />
-        </div>
-        <div class="buttons">
-          <button class="switch-button secondary-inverse">Вход</button>
-          <button class="register-button">Регистрация</button>
-        </div>
-      </form>
+        <form method="post" class="register">
+            <h2>Регистрация</h2>
+            <div class="form-group">
+                <label for="register-login">Логин</label>
+                <input type="text" id="register-login" name="login"/>
+            </div>
+            <div class="form-group">
+                <label for="register-password">Пароль</label>
+                <input type="password" id="register-password" name="password"/>
+            </div>
+            <div class="form-group">
+                <label for="register-password-confirm">Повтори пароль</label>
+                <input type="password" id="register-password-confirm" name="passwordConfirm"/>
+            </div>
+            <div class="buttons">
+                <button class="switch-button secondary-inverse">Вход</button>
+                <button class="register-button">Регистрация</button>
+            </div>
+        </form>
 
-      <% } else { %>
+        <% } else { %>
         <ul>
-          <li>Привет,
-            <a href="/users/<%= user.login %>">
-              <%= user.login %>
-            </a>!</li>
-          <li>
-            <a href="/post/add">Добавить пост</a>
-          </li>
-          <li>
-            <a href="/api/auth/logout">Выйти</a>
-          </li>
+            <li>Привет,
+                <a href="/users/<%= user.login %>">
+                    <%= user.login %>
+                </a>!
+            </li>
+            <li>
+                <a href="/post/add">Добавить пост</a>
+            </li>
+            <li>
+                <a href="/api/auth/logout">Выйти</a>
+            </li>
         </ul>
 
         <% } %>
 
-  </div>
-  <div class="box">
-    box
-  </div>
+    </div>
+    <div class="box">
+        box
+    </div>
 </div>

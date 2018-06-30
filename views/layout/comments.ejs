@@ -1,32 +1,30 @@
 <% if (items.length) { %>
-  <ul>
+<ul>
     <% } %>
 
-      <% items.forEach(function(item){ %>
-        <li id="<%= item.id %>">
-          <div class="head">
+    <% items.forEach(function(item){ %>
+    <li id="<%= item.id %>">
+        <div class="head">
             <a href="/users/<%= item.owner.login %>">
-              <%= item.owner.login %>
+                <%= item.owner.login %>
             </a>
             <spam class="date">
-              <%= moment(item.createdAt).fromNow(); %>
+                <%= moment(item.createdAt).fromNow(); %>
             </spam>
-          </div>
+        </div>
 
 
-          <%= item.body %>
-            <% if(!user.id && !user.login) { %>
-              <span class="link" onclick="alert('Для комментирования нужно авторизоваться!')">ответить</span>
-              <% } else { %>
-                <span class="link reply">ответить</span>
-                <% }  %>
+        <%= item.body %>
+        <% if(!user.id && !user.login) { %>
+        <span class="link" onclick="alert('Для комментирования нужно авторизоваться!')">ответить</span>
+        <% } else { %>
+        <span class="link reply">ответить</span>
+        <% } %>
 
+        <%- include('./comments.ejs', {items: item.children}) %>
+    </li>
+    <% }) %>
 
-
-                  <%- include('./comments.ejs', {items: item.children}) %>
-        </li>
-        <% }) %>
-
-          <% if (items.length) { %>
-  </ul>
-  <% } %>
+    <% if (items.length) { %>
+</ul>
+<% } %>

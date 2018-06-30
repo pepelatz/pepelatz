@@ -1,60 +1,61 @@
 <% include ../layout/header.ejs %>
 
-  <div class="main">
+<div class="main">
     <div class="container">
-      <div class="content">
-        <% for (var i = 0; i < posts.length; i++) { %>
-          <div class="post">
-            <div class="top">
-              <h2>
-                <a href="/posts/<%=posts[i].url %>">
-                  <%=posts[i].title %>
-                </a>
-                <% if (posts[i].owner.login === user.login || user.role === 'admin') { %>
+        <div class="content">
+            <% for (var i = 0; i < posts.length; i++) { %>
+            <div class="post">
+                <div class="top">
+                    <h2>
+                        <a href="/posts/<%= posts[i].url %>">
+                            <%= posts[i].title %>
+                        </a>
+                        <% if (posts[i].owner.login === user.login || user.role === 'admin') { %>
 
-                  <a class="edit <%= user.role === 'admin' ? 'admin' : 'user' %>" href="/post/edit/<%=posts[i].id %>">✎</a>
-                  <% } %>
-
-              </h2>
-            </div>
-            <div class="body">
-
-              <%-posts[i].body %>
-
-            </div>
-            <div class="bottom">
-              <div class="author">
-                Автор:
-                <a href="/users/<%=posts[i].owner.login %>">
-                  <%=posts[i].owner.login %>
-                </a>
-              </div>
-              <a href="/posts/<%=posts[i].url %>#<%=posts[i].id %>">Комментарии:
-                <%=posts[i].commentCount %>
-              </a>
-            </div>
-          </div>
-          <% } %>
-
-            <div class="pagination">
-              <% if (current > 2) { %>
-                <a class="new" href="/admin/posts/<%= Number(current) - 1 %>">← К новым</a>
-                <% } %>
-                  <% if (current == 2) { %>
-                    <a class="new" href="/">← На главную</a>
-                    <% } %>
-                      <% if (pages > 0 && current < pages) { %>
-                        <a class="old" href="/admin/posts/<%= Number(current) + 1 %>">К старым →</a>
+                        <a class="edit <%= user.role === 'admin' ? 'admin' : 'user' %>"
+                           href="/post/edit/<%= posts[i].id %>">✎</a>
                         <% } %>
 
+                    </h2>
+                </div>
+                <div class="body">
+
+                    <%- posts[i].body %>
+
+                </div>
+                <div class="bottom">
+                    <div class="author">
+                        Автор:
+                        <a href="/users/<%= posts[i].owner.login %>">
+                            <%= posts[i].owner.login %>
+                        </a>
+                    </div>
+                    <a href="/posts/<%= posts[i].url %>#<%= posts[i].id %>">Комментарии:
+                        <%= posts[i].commentCount %>
+                    </a>
+                </div>
+            </div>
+            <% } %>
+
+            <div class="pagination">
+                <% if (current > 2) { %>
+                <a class="new" href="/admin/posts/<%= Number(current) - 1 %>">← К новым</a>
+                <% } %>
+                <% if (current == 2) { %>
+                <a class="new" href="/">← На главную</a>
+                <% } %>
+                <% if (pages > 0 && current < pages) { %>
+                <a class="old" href="/admin/posts/<%= Number(current) + 1 %>">К старым →</a>
+                <% } %>
+
             </div>
 
 
-      </div>
+        </div>
 
-      <% include ../layout/sidebar.ejs %>
+        <% include ../layout/sidebar.ejs %>
 
     </div>
-  </div>
+</div>
 
-  <% include ../layout/footer.ejs %>
+<% include ../layout/footer.ejs %>
