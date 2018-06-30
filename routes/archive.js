@@ -46,7 +46,7 @@ async function posts(req, res) {
 
     const siteName =
       page === 1
-        ? `${config.SITE_NAME} — Привет, мир!`
+        ? `${config.SITE_NAME} — Костыли и велосипеды!`
         : `Страница ${page} — ${config.SITE_NAME}`;
 
     res.render('archive/index', {
