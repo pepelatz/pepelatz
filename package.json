@@ -37,6 +37,7 @@
     "eslint": "^5.0.1",
     "eslint-config-prettier": "^2.9.0",
     "eslint-plugin-node": "^6.0.1",
+    "express-modify-response": "^1.0.2",
     "faker": "^4.1.0",
     "gulp": "^3.9.1",
     "gulp-autoprefixer": "^5.0.0",
@@ -45,6 +46,7 @@
     "gulp-plumber": "^1.2.0",
     "gulp-sass": "^4.0.1",
     "gulp-uglifyjs": "^0.6.2",
+    "node-watch": "^0.5.8",
     "nodemon": "^1.13.3"
   },
   "engines": {

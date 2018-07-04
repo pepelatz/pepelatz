@@ -1298,6 +1298,17 @@ expand-tilde@^2.0.0, expand-tilde@^2.0.2:
   dependencies:
     homedir-polyfill "^1.0.1"
 
+express-dev-autoreload@^1.0.3:
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/express-dev-autoreload/-/express-dev-autoreload-1.0.3.tgz#7ec40ec61f9fd1acfef45ddf8d24f4b72b905fbd"
+  dependencies:
+    express-modify-response "^1.0.1"
+    node-watch "^0.4.1"
+
+express-modify-response@^1.0.1, express-modify-response@^1.0.2:
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/express-modify-response/-/express-modify-response-1.0.2.tgz#b20de0e92fffa87531fe670e9c7df8137f57524c"
+
 express-session@^1.15.6:
   version "1.15.6"
   resolved "https://registry.yarnpkg.com/express-session/-/express-session-1.15.6.tgz#47b4160c88f42ab70fe8a508e31cbff76757ab0a"
@@ -3090,6 +3101,14 @@ node-sass@^4.8.3:
     sass-graph "^2.2.4"
     stdout-stream "^1.4.0"
     "true-case-path" "^1.0.2"
+
+node-watch@^0.4.1:
+  version "0.4.1"
+  resolved "https://registry.yarnpkg.com/node-watch/-/node-watch-0.4.1.tgz#d0947d54a995f91135db4056b68722c6d7c322ad"
+
+node-watch@^0.5.8:
+  version "0.5.8"
+  resolved "https://registry.yarnpkg.com/node-watch/-/node-watch-0.5.8.tgz#208d10f93afe2f24b3701c254f54c7552f90c905"
 
 nodemon@^1.13.3:
   version "1.17.5"

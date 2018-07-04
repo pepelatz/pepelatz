@@ -53,6 +53,9 @@ app.use(
   '/javascripts',
   express.static(path.join(__dirname, 'node_modules', 'jquery', 'dist'))
 );
+if (!config.IS_PRODUCTION) {
+  app.use(require('./autoreload')({}));
+}
 
 // routes
 app.use('/', routes.archive);
